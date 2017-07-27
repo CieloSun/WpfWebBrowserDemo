@@ -8,7 +8,8 @@
         Title="WebBrowser">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="647*"/>
+            <ColumnDefinition Width="584*"/>
+            <ColumnDefinition Width="63*"/>
             <ColumnDefinition Width="55*"/>
             <ColumnDefinition Width="61*"/>
         </Grid.ColumnDefinitions>
@@ -16,10 +17,10 @@
             <RowDefinition Height="27*"/>
             <RowDefinition Height="296*"/>
         </Grid.RowDefinitions>
-        <TextBox Grid.Row="0" Grid.Column="0" Name="textBox" Grid.ColumnSpan="1" Margin="0,0,0,464.5" Grid.RowSpan="2"/>
-        <Button Grid.Row="0" Grid.Column="1" Name="button" Grid.ColumnSpan="1" Content="GO" Click="button_Click" />
-        <Button Grid.Row="0" Grid.Column="2" Name="buttonPrint" Content="Print" Click="ButtonPrint_Click"/>
-        <WebBrowser Name="webBrowser" Grid.Row="1" Grid.ColumnSpan="3" MouseRightButtonDown="WebBrowser_MouseRightButtonDown"  Grid.RowSpan="1"/>
-
+        <TextBox Grid.Row="0" Grid.Column="0" Name="textBox" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
+        <Button Grid.Row="0" Grid.Column="1" Name="button" Grid.ColumnSpan="1" Content="GO" Click="Button_Click" />
+        <Button Grid.Row="0" Grid.Column="2" Name="buttonPrint" Content="Print" Click="ButtonPrint_Click" />
+        <WebBrowser Name="webBrowser" Grid.ColumnSpan="4" Grid.RowSpan="2" Margin="0,42,0,-0.5"/>
+        <Button Grid.Row="0" Grid.Column="3" Name="buttonJS" Content="JS" Click="ButtonJS_Click"/>
     </Grid>
 </Window>

@@ -1,5 +1,4 @@
 ﻿using mshtml;
-using System.Diagnostics;
 using System.Reflection;
 using System.Windows.Controls;
 
@@ -17,20 +16,19 @@ namespace WpfWebBrowserDemo
 
             objComWebBrowser.GetType().InvokeMember("Silent", BindingFlags.SetProperty, null, objComWebBrowser, new object[] { hide });
         }
-        public static void AddJavaScriptElement(this WebBrowser webBrowser, string javaScriptString)
+        public static void AddJavaScriptElement(this WebBrowser webBrowser, string javaScriptString, string className = "")
         {
             if (webBrowser.Document is HTMLDocument doc)
             {
                 var element = doc.createElement("script") as HTMLScriptElement;
+                if (className != "") element.className = className;
                 element.type = "text/javascript";
                 element.text = javaScriptString;
                 var nodes = doc.getElementsByTagName("head");
 
                 foreach (var node in nodes)
                 {
-                    //Debug.WriteLine((node as HTMLHeadElement).lastChild.nodeName);
                     (node as HTMLHeadElement).appendChild(element as IHTMLDOMNode);
-                    //Debug.WriteLine((node as HTMLHeadElement).lastChild.nodeName);
                 }
             }
         }

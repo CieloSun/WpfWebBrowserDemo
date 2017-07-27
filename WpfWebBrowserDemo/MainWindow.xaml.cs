@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Windows;
-using System.Windows.Input;
 
 namespace WpfWebBrowserDemo
 {
@@ -15,7 +14,7 @@ namespace WpfWebBrowserDemo
             webBrowser.Source = new Uri("http://www.cnblogs.com/cielosun");
         }
 
-        private void button_Click(object sender, RoutedEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
             string uri = textBox.Text;
             if (!(uri.Contains("http://") || uri.Contains("https://")))
@@ -26,14 +25,15 @@ namespace WpfWebBrowserDemo
             webBrowser.Source = new Uri(uri);
         }
 
-        private void WebBrowser_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
-        {
-
-        }
-
         private void ButtonPrint_Click(object sender, RoutedEventArgs e)
         {
             webBrowser.Print();
+        }
+
+        private void ButtonJS_Click(object sender, RoutedEventArgs e)
+        {
+            webBrowser.AddJavaScriptElement("function GoToBaidu(){window.location.href=\"http://www.baidu.com\"; }");
+            webBrowser.InvokeScript("GoToBaidu");
         }
     }
 }
